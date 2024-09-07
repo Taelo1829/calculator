@@ -10,8 +10,8 @@ function App() {
       case "%":
         if (value !== "" && total !== "") {
           setValue((prevValue) => prevValue + val);
-          console.log(total);
-          setTotal((prevValue) => (prevValue / 100).toFixed(2));
+          setTotal((prevValue) => (prevValue / 100).toFixed(4));
+          
         } else {
           setValue(val);
           setTotal("Error");
