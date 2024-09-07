@@ -20,12 +20,17 @@ body {
   padding: 5px;
   width: 70px;
   height: 70px;
-  font-size: 50px;
+  font-size: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   /*Add a shadow to the button*/
   box-shadow: 2px 2px 1px rgba(97, 97, 97, 0.5);
+}
+
+.button:active,
+.equal-sign:active {
+  background-color: #333333; /* Background color when pressed */
 }
 
 .blinking-cursor {
@@ -48,15 +53,18 @@ body {
 }
 .calculator-screen {
   background-color: #7c845c;
-  margin-top: 100px;
-  height: 100px;
+  margin-top: 40px;
+  height: 130px;
   font-size: 50px;
   padding-right: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: end;
+  align-items: end;
 }
 
 .calculator-body {
+  margin-top: 70px;
   padding: 10px;
   height: 65%;
   color: white;
@@ -82,6 +90,10 @@ body {
   justify-content: space-between;
   width: 105%;
   padding: 5px;
+}
+
+.value{
+  display: flex;
 }
 
 @keyframes blink {
