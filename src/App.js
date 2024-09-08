@@ -8,14 +8,17 @@ function App() {
   function updateCalculations(val) {
     switch (val) {
       case "%":
-        if (value !== "" && total !== "") {
+        if (value !== "") {
           setValue((prevValue) => prevValue + val);
-          setTotal((prevValue) => (prevValue / 100).toFixed(4));
-          
+          setTotal((prevValue) => (prevValue / 100).toFixed(2));
         } else {
           setValue(val);
           setTotal("Error");
         }
+        break;
+      case "=":
+        setValue(total);
+        setTotal("");
         break;
       default:
         if (value !== "" && total !== "") {
@@ -56,14 +59,14 @@ function App() {
               <div className="row">
                 <div className="button">C</div>
                 <div className="button">
-                  <img src="/images/divide.png" width={40} />
+                  <img src="/images/divide.png" width={30} />
                 </div>
                 <div className="button">X</div>
               </div>
             </div>
             <div className="operations">
               <div className="button">
-                <img src="/images/backspace.png" />
+                <img src="/images/backspace.png" width={30} />
               </div>
             </div>
           </div>
@@ -84,13 +87,21 @@ function App() {
           <div className="bottomRow">
             <div>
               <div className="row">
-                <div className="button">4</div>
-                <div className="button">5</div>
-                <div className="button">6</div>
+                <div className="button" onClick={() => updateCalculations("4")}>
+                  4
+                </div>
+                <div className="button" onClick={() => updateCalculations("5")}>
+                  5
+                </div>
+                <div className="button" onClick={() => updateCalculations("6")}>
+                  6
+                </div>
               </div>
             </div>
             <div className="operations">
-              <div className="button">+</div>
+              <div className="button" onClick={() => updateCalculations("+")}>
+                +
+              </div>
             </div>
           </div>
           <div className="bottomRow">
@@ -99,8 +110,12 @@ function App() {
                 <div className="button" onClick={() => updateCalculations("1")}>
                   1
                 </div>
-                <div className="button">2</div>
-                <div className="button">3</div>
+                <div className="button" onClick={() => updateCalculations("2")}>
+                  2
+                </div>
+                <div className="button" onClick={() => updateCalculations("3")}>
+                  3
+                </div>
               </div>
               <div className="row">
                 <div className="button" onClick={() => updateCalculations("%")}>
@@ -114,7 +129,9 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="equal-sign">=</div>
+            <div className="equal-sign" onClick={() => updateCalculations("=")}>
+              =
+            </div>
           </div>
         </div>
       </div>
